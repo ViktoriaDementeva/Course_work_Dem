@@ -24,19 +24,19 @@ module HC_SR04(
 input logic clk,
 input logic rst,
 // input logic key,
-(* mark_debug = "true" *)input logic echo,
+input logic echo,
 output logic trig,
 output logic [11:0] distance1,
 output logic synch
 
 );
-(* mark_debug = "true" *)logic clk2, rst2, echo_flag;
+logic clk2, rst2, dist1_flag;
 logic [19:0] cnt;
-logic [23:0] distance;
+logic [31:0] distance;
 logic [15:0] trig_cnt;
 logic [63:0] echo_cnt;
-logic [23:0] T;
-logic [7:0] dist_cnt;
+logic [31:0] T;
+logic [11:0] dist_cnt;
 
 enum logic [1:0]{
 IDLE = 2'b00,
@@ -62,21 +62,21 @@ else
 trig <= 1'd0;
 
 
-always_ff@(posedge clk)
-if (rst)
-begin
-clk2 <= 1'd1;
-cnt <= 20'd0;
-end
-else
-begin
-cnt <= cnt + 20'd1;
-if (cnt == 20'd100000)
-begin
-clk2 <= ~clk2;
-cnt <= 20'd0;
-end
-end
+//always_ff@(posedge clk)
+//if (rst)
+//begin
+//clk2 <= 1'd1;
+//cnt <= 20'd0;
+//end
+//else
+//begin
+//cnt <= cnt + 20'd1;
+//if (cnt == 20'd100000)
+//begin
+//clk2 <= ~clk2;
+//cnt <= 20'd0;
+//end
+//end
 
 
 always_ff@(posedge clk)
@@ -89,55 +89,73 @@ rst2 <= 1'd0;
 
 
 always_ff@(negedge clk)
-begin
 if (rst2)
 echo_cnt <= 63'd0;
 else
 if (echo)
 echo_cnt <= echo_cnt + 63'd1;
-else
-echo_cnt <= 63'd0;
-end
+//else
+//echo_cnt <= 63'd0;
+
 
 
 always_ff @(negedge clk)
 if (rst2)
-distance <= 24'd0;
+distance <= 32'd0;
 else
 begin
 distance <= echo_cnt*17;
 end
 
 always_ff@(posedge clk)
-if (rst2)
+if (echo)
 begin
 distance1 <= 12'd0;
-T <= 24'd1000;
+T <= 31'd1000;
 dist_cnt <= 12'd0;
 end
 else
 if (T < distance)
 begin
-T <= T + 24'd100000;
-dist_cnt <= dist_cnt + 8'd1;
+T <= T + 31'd100000;
+dist_cnt <= dist_cnt + 12'd1;
 distance1 <= 12'd0;
 end
 else
-distance1 <= (dist_cnt) ? dist_cnt : distance;
+distance1 <= dist_cnt;
+////    else 
+
+
+
+
+
+//always_ff@(posedge clk)
+//if (rst)
+//begin
+//synch <= 1'd0;
+//echo_flag <= 1'd0;
+//end
+//else
+//begin
+//echo_flag <= echo;
+//if (~echo && echo_flag)
+//synch <=  1'd1;
+//else
+//synch <= 1'd0;
+//end
 
 always_ff@(posedge clk)
 if (rst)
 begin
 synch <= 1'd0;
-echo_flag <= 1'd0;
+dist1_flag <= 1'd0;
 end
 else
 begin
-echo_flag <= echo;
-if (~echo && echo_flag)
+dist1_flag <= |distance1;
+if (distance1 && ~dist1_flag)
 synch <=  1'd1;
 else
 synch <= 1'd0;
 end
-
 endmodule

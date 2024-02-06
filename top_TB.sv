@@ -56,6 +56,6 @@ echo = 1'd0;
 #5 rst = 1'd1;
 #5 rst = 1'd0;
 #200 echo = 1'd1;
-#2000000 echo = 1'd0;
+#290000 echo = 1'd0;
 end
 endmodule
