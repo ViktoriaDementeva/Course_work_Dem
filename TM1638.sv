@@ -23,13 +23,13 @@
 module TM1638(
 input logic clk,
 input logic synch2,
-(* mark_debug = "true" *)output logic stb,
+output logic stb,
 input logic [7:0] data1,
 input logic [7:0] data2,
 input logic [7:0] data3,
 input logic rst,
-(* mark_debug = "true" *)output logic dio,
-(* mark_debug = "true" *)output logic clk_kHz
+output logic dio,
+output logic clk_kHz
 );
 
     logic [11:0] cnt;
