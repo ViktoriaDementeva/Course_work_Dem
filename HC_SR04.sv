@@ -23,7 +23,7 @@
 module HC_SR04(
 input logic clk,
 input logic rst,
-// input logic key,
+//input logic key,
 input logic echo,
 output logic trig,
 output logic [11:0] distance1,
@@ -46,37 +46,23 @@ COUNT = 2'b11
 }
 state, new_state;
 
-always_ff@(posedge clk)
+always_ff@(posedge clk or posedge rst)
 if (rst)
 begin
 trig_cnt <= 16'd1001;
 trig <= 1'd0;
 end
 else
-if (trig_cnt)
-begin
-trig <= 1'd1;
-trig_cnt <= trig_cnt-16'd1;
-end
-else
-trig <= 1'd0;
+    if (trig_cnt)
+    begin
+    //if (key)
+    trig <= 1'd1;
+    trig_cnt <= trig_cnt-16'd1;
+    end
+        else
+        trig <= 1'd0;
 
 
-//always_ff@(posedge clk)
-//if (rst)
-//begin
-//clk2 <= 1'd1;
-//cnt <= 20'd0;
-//end
-//else
-//begin
-//cnt <= cnt + 20'd1;
-//if (cnt == 20'd100000)
-//begin
-//clk2 <= ~clk2;
-//cnt <= 20'd0;
-//end
-//end
 
 
 always_ff@(posedge clk)

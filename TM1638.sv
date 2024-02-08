@@ -38,20 +38,20 @@ output logic clk_kHz
     logic [15:0] i;
     logic [2:0] per;
     logic [7:0] pos;
-    logic [151:0] data;
+    (* dont_touch = "true" *) logic [151:0] data;
     
     //logic [7:0] data1 = 8'b0111_0110;
     //logic [7:0] data2 = 8'b0111_1001;
-    logic [7:0] data_0 = 8'b1111_1100;
+    (* dont_touch = "true" *) logic [7:0] data_0 = 8'b0011_1111; //1111_1100
     
-    logic [7:0] data_d = 8'b0111_1010;
-    logic [7:0] data_i = 8'b1100_0000;
-    logic [7:0] data_s = 8'b1011_0100;
-    logic [7:0] data_t = 8'b0001_1110;
+    (* dont_touch = "true" *)  logic [7:0] data_d = 8'b0101_1110; //0111_1010
+    (* dont_touch = "true" *) logic [7:0] data_i = 8'b0000_0110; //1100_0000
+    (* dont_touch = "true" *) logic [7:0] data_s = 8'b0110_1101; //1011_0100
+    (* dont_touch = "true" *) logic [7:0] data_t = 8'b0111_1000; //0001_1110
     
-    logic [7:0] com1 = 8'b0100_0000;
-    logic [7:0] com2 = 8'b1100_0000;
-    logic [7:0] com3 = 8'b1000_1111;
+    (* dont_touch = "true" *) logic [7:0] com1 = 8'b0100_0000;
+    (* dont_touch = "true" *) logic [7:0] com2 = 8'b1100_0000;
+    (* dont_touch = "true" *) logic [7:0] com3 = 8'b1000_1111;
     
     
     always_ff@(posedge synch2)
@@ -112,7 +112,7 @@ output logic clk_kHz
     end
     
     always_ff@(posedge clk_kHz2)
-    if (synch2)
+    //if (synch2)
     begin
     case (state)
     

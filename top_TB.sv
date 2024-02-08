@@ -22,7 +22,7 @@
 
 module top_TB;
 //inputs
-logic clk, rst;
+logic clk, rst, key;
 logic [11:0] bin_in;
 //outputs
 logic i;
@@ -53,9 +53,16 @@ begin
 clk = 1'd0;
 rst = 1'd0;
 echo = 1'd0;
+key = 1'd0;
 #5 rst = 1'd1;
-#5 rst = 1'd0;
+#20 rst = 1'd0;
+#50 key = 1'd1;
+#5 key = 1'd0;
 #200 echo = 1'd1;
 #290000 echo = 1'd0;
+#2000000 rst = 1'd1;
+#18 echo = 1'd1;
+#57 rst = 1'd0;
+#20000000 echo = 1'd0;
 end
 endmodule
