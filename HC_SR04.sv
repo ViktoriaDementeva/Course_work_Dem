@@ -46,7 +46,7 @@ COUNT = 2'b11
 }
 state, new_state;
 
-always_ff@(posedge clk or posedge rst)
+always_ff@(posedge clk or negedge rst)
 if (rst)
 begin
 trig_cnt <= 16'd1001;
@@ -85,7 +85,7 @@ echo_cnt <= echo_cnt + 63'd1;
 
 
 
-always_ff @(negedge clk)
+always_ff @(posedge clk)
 if (rst2)
 distance <= 32'd0;
 else
@@ -93,7 +93,7 @@ begin
 distance <= echo_cnt*17;
 end
 
-always_ff@(posedge clk)
+always_ff@(posedge clk or negedge echo)
 if (echo)
 begin
 distance1 <= 12'd0;
@@ -130,7 +130,7 @@ distance1 <= dist_cnt;
 //synch <= 1'd0;
 //end
 
-always_ff@(posedge clk)
+always_ff@(posedge clk or posedge rst)
 if (rst)
 begin
 synch <= 1'd0;
