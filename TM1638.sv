@@ -54,7 +54,11 @@ output logic clk_kHz
     (* dont_touch = "true" *) logic [7:0] com3 = 8'b1000_1111;
     
     
-    always_ff@(posedge synch2)
+    always_ff@(posedge synch2 or posedge rst)
+    if (rst)
+    data = 152'd0;
+    else
+    if (synch2)
     data = {com3, 8'b1111_1111, data3, 8'b0, data2, 8'b1111_1111, data1, 8'b0, data_0, 8'b1111_1111, data_t, 8'b0, data_s, 8'b1111_1111, data_i, 8'b0, data_d, com2, com1};
     
       
@@ -112,7 +116,7 @@ output logic clk_kHz
     end
     
     always_ff@(posedge clk_kHz2)
-    //if (synch2)
+    if (synch2)
     begin
     case (state)
     
@@ -195,7 +199,7 @@ output logic clk_kHz
     endcase
     end
     
-     always_ff@(negedge clk_kHz or posedge rst)
+     always_ff@(negedge clk_kHz or posedge rst) //or negedge rst
         if (rst)
         begin
         dio <= 1'd0;

@@ -43,7 +43,7 @@ output logic [3:0] dec_out3
  logic [11:0] dec;
 
  
-always_ff@(posedge clk)
+always_ff@(posedge clk or posedge rst)
 begin
     if (rst)
     begin
