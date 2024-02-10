@@ -26,8 +26,8 @@ input logic rst,
 //input logic key,
 input logic echo,
 output logic trig,
-output logic [11:0] distance1,
-output logic synch
+(* mark_debug = "true" *) output logic [11:0] distance1,
+ output logic synch
 
 );
 logic clk2, rst2, dist1_flag;
@@ -38,13 +38,6 @@ logic [63:0] echo_cnt;
 logic [31:0] T;
 logic [11:0] dist_cnt;
 
-enum logic [1:0]{
-IDLE = 2'b00,
-TRIGG = 2'b01,
-WAIT = 2'b10,
-COUNT = 2'b11
-}
-state, new_state;
 
 always_ff@(posedge clk or negedge rst)
 if (rst)
