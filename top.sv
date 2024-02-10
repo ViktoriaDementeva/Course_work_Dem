@@ -23,22 +23,21 @@
 module top(
 input logic clk,
 //input logic key,
-input logic rst,
+(* mark_debug = "true" *) input logic rst,
 input logic echo,
 output logic trig,   
-(* mark_debug = "true" *) output logic stb,
-(* mark_debug = "true" *) output logic dio,
+output logic stb, 
+output logic dio,
 output logic clk_kHz
     );
 (* dont_touch = "true" *) logic [11:0] dist_from_sensor;
 logic [3:0] dist_from_bcd1;
 logic [3:0] dist_from_bcd2;
 logic [3:0] dist_from_bcd3;
-(* dont_touch = "true" *) logic [7:0] data1_to_TM;
-(* dont_touch = "true" *) logic [7:0] data2_to_TM;
-(* dont_touch = "true" *) logic [7:0] data3_to_TM;
-//(* mark_debug = "true" *) 
-logic synch, synch2;
+(* dont_touch = "true", mark_debug = "true" *) logic [7:0] data1_to_TM;
+(* dont_touch = "true", mark_debug = "true" *) logic [7:0] data2_to_TM;
+(* dont_touch = "true", mark_debug = "true" *) logic [7:0] data3_to_TM;
+(* mark_debug = "true" *) logic synch, synch2;
  
     HC_SR04 hcsr04(.clk(clk), .rst(rst), .echo(echo), .trig(trig), .distance1(dist_from_sensor), .synch(synch));
     BCD bcd (.clk(clk), .rst(rst), .synch(synch), .bin_in(dist_from_sensor), .dec_out1(dist_from_bcd1), .dec_out2(dist_from_bcd2), .dec_out3(dist_from_bcd3));
@@ -47,7 +46,7 @@ logic synch, synch2;
     Data_to_TM1638 data3( .in(dist_from_bcd3), .out(data3_to_TM));
     
     always_ff@(posedge clk)
-    if (((data1_to_TM == 8'd63) && (data2_to_TM == 8'd63) && (data3_to_TM == 8'd63)) || ((data1_to_TM == 8'd128) && (data2_to_TM == 8'd128) && (data3_to_TM == 8'd128)))
+    if (((data1_to_TM == 8'd63) && (data2_to_TM == 8'd63) && (data2_to_TM == 8'd63) || (dist_from_sensor == 12'd0)))
     synch2 <= 1'd0;
     else 
     synch2 <= 1'd1;
