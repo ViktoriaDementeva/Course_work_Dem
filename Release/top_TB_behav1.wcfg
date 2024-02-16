@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TM1638_TB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TM1638_TB" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="92525000000fs"></ZoomStartTime>
+      <ZoomEndTime time="151175000001fs"></ZoomEndTime>
+      <Cursor1Time time="102300000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="117"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/TM1638_TB/uut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/synch2" type="logic">
+      <obj_property name="ElementShortName">synch2</obj_property>
+      <obj_property name="ObjectShortName">synch2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/clk_kHz" type="logic">
+      <obj_property name="ElementShortName">clk_kHz</obj_property>
+      <obj_property name="ObjectShortName">clk_kHz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/stb" type="logic">
+      <obj_property name="ElementShortName">stb</obj_property>
+      <obj_property name="ObjectShortName">stb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/dio" type="logic">
+      <obj_property name="ElementShortName">dio</obj_property>
+      <obj_property name="ObjectShortName">dio</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data1" type="array">
+      <obj_property name="ElementShortName">data1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data2" type="array">
+      <obj_property name="ElementShortName">data2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data3" type="array">
+      <obj_property name="ElementShortName">data3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/cnt" type="array">
+      <obj_property name="ElementShortName">cnt[11:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/cnt_01" type="array">
+      <obj_property name="ElementShortName">cnt_01[11:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt_01[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/clk_kHz2" type="logic">
+      <obj_property name="ElementShortName">clk_kHz2</obj_property>
+      <obj_property name="ObjectShortName">clk_kHz2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/rst2" type="logic">
+      <obj_property name="ElementShortName">rst2</obj_property>
+      <obj_property name="ObjectShortName">rst2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/i" type="array">
+      <obj_property name="ElementShortName">i[15:0]</obj_property>
+      <obj_property name="ObjectShortName">i[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/per" type="array">
+      <obj_property name="ElementShortName">per[2:0]</obj_property>
+      <obj_property name="ObjectShortName">per[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/pos" type="array">
+      <obj_property name="ElementShortName">pos[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pos[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data" type="array">
+      <obj_property name="ElementShortName">data[151:0]</obj_property>
+      <obj_property name="ObjectShortName">data[151:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data_0" type="array">
+      <obj_property name="ElementShortName">data_0[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_0[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data_d" type="array">
+      <obj_property name="ElementShortName">data_d[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_d[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data_i" type="array">
+      <obj_property name="ElementShortName">data_i[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_i[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data_s" type="array">
+      <obj_property name="ElementShortName">data_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_s[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/data_t" type="array">
+      <obj_property name="ElementShortName">data_t[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_t[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/com1" type="array">
+      <obj_property name="ElementShortName">com1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">com1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/com2" type="array">
+      <obj_property name="ElementShortName">com2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">com2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/com3" type="array">
+      <obj_property name="ElementShortName">com3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">com3[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/state" type="array">
+      <obj_property name="ElementShortName">state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TM1638_TB/uut/new_state" type="array">
+      <obj_property name="ElementShortName">new_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">new_state[2:0]</obj_property>
+   </wvobject>
+</wave_config>
